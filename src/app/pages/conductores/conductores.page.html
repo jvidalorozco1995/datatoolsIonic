@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>conductores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+  <form  [formGroup]="conductoresForm">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h4>Registrar una nuevo conductor</h4>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-label>Tipo de documento</ion-label>
+              <ion-select formControlName="tipodocumento" required>
+                <ion-select-option value="CC">Cedula</ion-select-option>
+                <ion-select-option value="Nit">Nit</ion-select-option>
+              </ion-select>
+            </ion-item>
+       
+            <ion-item>
+              <ion-input formControlName="numerodocumento"  type="number" placeholder="Número de documento"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="nombres"  type="text" placeholder="Nombres"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="direccion"   placeholder="Dirección"  required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>País</ion-label>
+              <ion-select formControlName="pais">
+                <ion-select-option  value="Colombia">Colombia</ion-select-option>
+              
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Departamento</ion-label>
+              <ion-select formControlName="departamento">
+                <ion-select-option value="Cundinamarca">Cundinamarca</ion-select-option>
+            
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Ciudad</ion-label>
+              <ion-select formControlName="ciudad">
+                <ion-select-option value="Bogota">Bogotá DC</ion-select-option>
+              
+              </ion-select>
+            </ion-item>
+           
+            <ion-item>
+              <ion-input formControlName="telefono" name="confirm" placeholder="Teléfono"  required></ion-input>
+            </ion-item>
+           
+          </div>
+          <div padding class="center">
+            <ion-button  size="medium" (click)="submit()" [disabled]="conductoresForm.invalid" expand="block">Guardar cambios</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

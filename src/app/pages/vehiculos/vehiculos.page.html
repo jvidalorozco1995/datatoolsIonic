@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vehiculos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form  [formGroup]="vehiculosForm">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h4>Registrar una nuevo vehiculo</h4>
+          </div>
+          <div padding>
+         
+            <ion-item>
+              <ion-input  formControlName="placa" type="text" placeholder="Placa" required></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-input formControlName="motor" type="text" placeholder="Motor"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="chasis"  placeholder="Chasis"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="modelo"  placeholder="Modelo"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="date" formControlName="fechamatricula"  placeholder="Fecha de matricula"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" formControlName="pasajeros"  placeholder="Cantidad de pasajeros"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" formControlName="pesoseco"  placeholder="Peso seco"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" formControlName="pesobruto"  placeholder="Peso bruto"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" formControlName="cantpuertas"  placeholder="Cantidad de puertas"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="marca"  placeholder="Marca"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="linea"  placeholder="Linea"  ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Empresa a la cual pertenece</ion-label>
+              <ion-select formControlName="idempresa">
+                <ion-select-option *ngFor="let empresa of lstEmpresas" value="{{empresa.id}}">{{empresa.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+        
+          
+          </div>
+          <div padding class="center">
+            <ion-button  size="medium" (click)="submit()" type="submit" [disabled]="vehiculosForm.invalid" expand="block">Guardar cambios</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
