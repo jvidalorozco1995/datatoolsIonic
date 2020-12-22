@@ -22,7 +22,7 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-input placeholder="Texto a buscar" [(ngModel)]="search"></ion-input>
+          <ion-input placeholder="Texto a buscar" [(ngModel)]="search" (ngModelChange)="check($event)"></ion-input>
         </ion-item>
         </ion-col>
       </ion-row>

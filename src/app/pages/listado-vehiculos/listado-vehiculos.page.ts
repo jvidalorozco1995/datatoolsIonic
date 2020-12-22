@@ -45,6 +45,12 @@ export class ListadoVehiculosPage implements OnInit {
   
   }
 
+  check(){
+    if(this.search == ''){
+      this.loadAll();
+    }
+  }
+
   removefilter(){
     this.loadAll();
     this.search = '';
