@@ -25,5 +25,11 @@ export class AsignarVehiculosService {
    return this.http.post<any>(path, asignarModel);
   }
 
+  desafiliarVehiculos(asignarModel: AsignarVehiculosModel) {
+    debugger;
+    const path = `${this.api}/desaFiliarVehiculos`;
+   return this.http.post<any>(path, asignarModel);
+  }
+
 
 }

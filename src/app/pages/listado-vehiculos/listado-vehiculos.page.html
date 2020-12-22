@@ -5,13 +5,65 @@
 </ion-header>
 
 <ion-content>
+
   <ion-list>
+   
+    <div padding class="center">
+      <ion-row>
+        <ion-col size="12">
+        <ion-item>
+          <ion-label>Buscar por:</ion-label>
+          <ion-select [(ngModel)]="filtroOpcionSeleccionada">
+            <ion-select-option value="0">Tipo Documento</ion-select-option>
+            <ion-select-option value="1">Número de Documento</ion-select-option>
+            <ion-select-option value="2">Empresa</ion-select-option>
+            <ion-select-option value="3">Conductor</ion-select-option>
+            <ion-select-option value="4">Placa</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="Texto a buscar" [(ngModel)]="search"></ion-input>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button  size="medium"  (click)="filter()"  expand="block">Buscar</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button  size="medium" (click)="removefilter()"  expand="block">Quitar filtro</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
     <ion-item *ngFor="let item of (lstVehiculosAsignados )">
       <ion-avatar slot="start">
         <img src="https://www.flaticon.es/premium-icon/icons/svg/2684/2684218.svg">
       </ion-avatar>
       <ion-label>
-        <ion-grid>
+        <ion-card>
+          <ion-item>
+            <ion-label></ion-label>
+            <ion-button fill="outline" slot="end" (click)="desafiliar(item)">Desafiliar</ion-button>
+          </ion-item>
+          <ion-card-header>
+           
+            <ion-card-title>Empresa</ion-card-title>
+            <ion-card-subtitle>{{item.empresa}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-item  class="ion-activated">
+            <ion-card-subtitle>{{item.tipodocumento}}</ion-card-subtitle>
+          </ion-item>
+          <ion-item  class="ion-activated">
+            <ion-card-subtitle>{{item.numerodocumento}}</ion-card-subtitle>
+          </ion-item>
+          <ion-item  class="ion-activated">
+            <ion-card-subtitle>{{item.nombres}}</ion-card-subtitle>
+          </ion-item>
+          <ion-item  class="ion-activated">
+            <ion-card-subtitle>{{item.placa}}</ion-card-subtitle>
+          </ion-item>
+        </ion-card>
+        <!-- <ion-grid>
           <ion-row>
             <ion-col size="2">
               
@@ -49,7 +101,7 @@
               Placa: {{item.placa}}
             </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid> -->
       </ion-label>
     </ion-item>
   </ion-list>
